@@ -1,0 +1,59 @@
+<html>
+    <head> 
+        This Digital Clock Created By Gautam Kumar
+    </head>
+    
+    <body>
+        <h1 id="dc">Welcome</h1 id="dc">
+    </body>
+
+    <script>
+        function showtime()
+        {
+            let date=new Date();
+            let h=date.getHours();
+            let m=date.getMinutes();
+            let s=date.getSeconds();
+
+            let session="AM";
+
+
+            if(h==0)
+            h=12;
+
+            if(h>12)
+            h=h-12;
+            session="PM";
+
+            /*
+
+            if(h<10)
+            h="0"+h;
+
+            if(m<10)
+            m="0"+m;
+
+            if(s<10)
+            s="0"+s;
+           */
+
+           // We can write the above code in shortcut by ternery operator
+
+           h=(h<10) ? "0" +h : h; // here if h value is less than 10 then it will add 0 before that and if h value is not les than 10 then that will be as it is.
+           m=(m<10) ? "0" +m : m;
+           s=(s<10) ? "0" +s : s;
+
+
+           let time=h+":"+m+":"+s+" "+session;
+
+            document.getElementById("dc").innerHTML=time;
+            setTimeout(showtime,1000);// to make dynamic digital clock
+
+        }
+        showtime(); // as of now it is showing static time for the current running time i have to refresh the live server again and again
+
+        //so to make the dynamic digital clock i have to change /update some code 
+
+
+    </script>
+</html>
